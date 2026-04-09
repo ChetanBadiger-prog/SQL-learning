@@ -1,0 +1,197 @@
+1.
+create table bookings
+(
+booking_id int not null primary key,
+customer_id int null,
+package_id int null,
+booking_data date null,
+status Enum('Confirmed','Cancelled','pending') null,
+constraint foreign key(customer_id) references customer(customer_id),
+constraint foreign key(package_id) references packages(package_id),
+);
+
+output:
++--------------+-----------------------------------------+------+-----+---------+-------+
+| Field        | Type                                    | Null | Key | Default | Extra |
++--------------+-----------------------------------------+------+-----+---------+-------+
+| booking_id   | int                                     | NO   | PRI | NULL    |       |
+| customer_id  | int                                     | YES  | MUL | NULL    |       |
+| package_id   | int                                     | YES  | MUL | NULL    |       |
+| booking_data | date                                    | YES  |     | NULL    |       |
+| status       | enum('Confirmed','Cancelled','pending') | YES  |     | NULL    |       |
++--------------+-----------------------------------------+------+-----+---------+-------+
+
+2.
+create table destination
+(
+destination_id int  not null primary key,
+destination_name varchar(100) null,
+state varchar(50) null,
+average_cost decimal(10,2) null
+);
+
+output:
++------------------+---------------+------+-----+---------+-------+
+| Field            | Type          | Null | Key | Default | Extra |
++------------------+---------------+------+-----+---------+-------+
+| destination_id   | int           | NO   | PRI | NULL    |       |
+| destination_name | varchar(100)  | YES  |     | NULL    |       |
+| state            | varchar(50)   | YES  |     | NULL    |       |
+| average_cost     | decimal(10,2) | YES  |     | NULL    |       |
++------------------+---------------+------+-----+---------+-------+
+
+3.
+create table customer
+(
+customer_id int not null primary key,
+first_name varchar(50) null,
+last_name varchar(50) null,
+email varchar(100) null,
+phone_number varchar(15) null
+);
+
+output:
++--------------+--------------+------+-----+---------+-------+
+| Field        | Type         | Null | Key | Default | Extra |
++--------------+--------------+------+-----+---------+-------+
+| customer_id  | int          | NO   | PRI | NULL    |       |
+| first_name   | varchar(50)  | YES  |     | NULL    |       |
+| last_name    | varchar(50)  | YES  |     | NULL    |       |
+| email        | varchar(100) | YES  |     | NULL    |       |
+| phone_number | varchar(15)  | YES  |     | NULL    |       |
++--------------+--------------+------+-----+---------+-------+
+
+4.
+create table packages
+(
+package_id int not null primary key,
+destination_id int null,
+package_name varchar(100) null,
+duration_days int null,
+price decimal(10,2) null,
+constraint foreign key(destination_id) references destination(destination_id)
+);
+
+output:
++----------------+---------------+------+-----+---------+-------+
+| Field          | Type          | Null | Key | Default | Extra |
++----------------+---------------+------+-----+---------+-------+
+| package_id     | int           | NO   | PRI | NULL    |       |
+| destination_id | int           | YES  | MUL | NULL    |       |
+| package_name   | varchar(100)  | YES  |     | NULL    |       |
+| duration_days  | int           | YES  |     | NULL    |       |
+| price          | decimal(10,2) | YES  |     | NULL    |       |
++----------------+---------------+------+-----+---------+-------+
+
+
+5.
+create table doctors
+(
+doc_id int not null primary key,
+doc_name varchar(50) null,
+specialization varchar(50) null
+);
+
+output:
++----------------+-------------+------+-----+---------+-------+
+| Field          | Type        | Null | Key | Default | Extra |
++----------------+-------------+------+-----+---------+-------+
+| doc_id         | int         | NO   | PRI | NULL    |       |
+| doc_name       | varchar(50) | YES  |     | NULL    |       |
+| specialization | varchar(50) | YES  |     | NULL    |       |
++----------------+-------------+------+-----+---------+-------+
+
+6.
+create table patients
+(
+pat_id int not null primary key,
+pat_name varchar(50) null,
+dob date null,
+gender char(1) null
+);
+
+output:
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| pat_id   | int         | NO   | PRI | NULL    |       |
+| pat_name | varchar(50) | YES  |     | NULL    |       |
+| dob      | date        | YES  |     | NULL    |       |
+| gender   | char(1)     | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+
+7. 
+create table appointments
+(
+app_id int not null primary key,
+doc_id int null,
+pat_id int null,
+app_date datetime null,
+status Enum('SCHEDULED','COMPLETED','CANCELLED') NULL,
+constraint foreign key(doc_id) references doctors(doc_id),
+constraint foreign key(pat_id) references patients(pat_id)
+);
+
+output:
++----------+-------------------------------------------+------+-----+---------+-------+
+| Field    | Type                                      | Null | Key | Default | Extra |
++----------+-------------------------------------------+------+-----+---------+-------+
+| app_id   | int                                       | NO   | PRI | NULL    |       |
+| doc_id   | int                                       | YES  | MUL | NULL    |       |
+| pat_id   | int                                       | YES  | MUL | NULL    |       |
+| app_date | datetime                                  | YES  |     | NULL    |       |
+| status   | enum('SCHEDULED','COMPLETED','CANCELLED') | YES  |     | NULL    |       |
++----------+-------------------------------------------+------+-----+---------+-------+
+
+8.
+create table bills
+(
+bill_id int not null primary key,
+app_id int null,
+amount decimal(10,2) null,
+payment_status Enum('PAID','UNPAID') null,
+constraint foreign key(app_id) references appointments(app_id)
+);
+
+output:
++----------------+-----------------------+------+-----+---------+-------+
+| Field          | Type                  | Null | Key | Default | Extra |
++----------------+-----------------------+------+-----+---------+-------+
+| bill_id        | int                   | NO   | PRI | NULL    |       |
+| app_id         | int                   | YES  | MUL | NULL    |       |
+| amount         | decimal(10,2)         | YES  |     | NULL    |       |
+| payment_status | enum('PAID','UNPAID') | YES  |     | NULL    |       |
++----------------+-----------------------+------+-----+---------+-------+
+
+9.
+create table medications
+(
+med_id int not null primary key,
+pat_id int null,
+doc_id int null,
+madicine_name varchar(100) null,
+dosage varchar(50) null,
+start_date date null,
+end_date date null,
+constraint foreign key(pat_id) references patients(pat_id),
+constraint foreign key(doc_id) references doctors(doc_id)
+);
+
+output:
++---------------+--------------+------+-----+---------+-------+
+| Field         | Type         | Null | Key | Default | Extra |
++---------------+--------------+------+-----+---------+-------+
+| med_id        | int          | NO   | PRI | NULL    |       |
+| pat_id        | int          | YES  | MUL | NULL    |       |
+| doc_id        | int          | YES  | MUL | NULL    |       |
+| madicine_name | varchar(100) | YES  |     | NULL    |       |
+| dosage        | varchar(50)  | YES  |     | NULL    |       |
+| start_date    | date         | YES  |     | NULL    |       |
+| end_date      | date         | YES  |     | NULL    |       |
++---------------+--------------+------+-----+---------+-------+
+
+
+
+
+
+
