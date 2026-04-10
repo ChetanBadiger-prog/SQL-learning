@@ -1,0 +1,41 @@
+ALTER
+
+1. to add new column_name:
+
+alter table table_name
+add new_column_name new_datatype null/not null;
+
+2. to add column name after the particular column name
+
+alter table table_name
+add new_column_name new_datatype null/not null after existing_column_name;
+
+3. to add new_column_name in the first position
+
+alter table table_name
+add new_column_name new_datatype null/not null fisrt;
+
+4. to drop column name
+
+alter table table_name
+drop existing_column_name;
+
+5. to change datatype
+
+alter table table_name
+modify existing_column_name new_data_type null/not null;
+
+6.  to change null/not null
+
+alter table table_name
+modify existing_column_name existing_datatype null/not null;
+
+7. to change table name
+
+alter table table_name
+rename new_table_name;
+
+8. to change column_name
+
+alter table table_name
+rename column existing_column_name to new_column_name;
