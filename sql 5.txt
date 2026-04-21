@@ -1,0 +1,88 @@
+1. adding a record to the table?
+syntax:
+insert into table_name(price,pname,pid,quatity) values(v1,v2,...vn);
+
+2. add multiple values at same time
+
+insert into product(price,pname,pid,quantity) values(9,"watch",6,2),(8,"belt",7,8);
+
+3. add values to the table according to the attrubutes. 
+
+insert into product(pname,price) values("ring",8);
+
+4. to update the value in the table
+
+update product
+set sunscreen=curd_rice
+where pid=1;
+
+select*from product;
+
++-----+------------+--------+----------+
+| pid | pname      | price  | quantity |
++-----+------------+--------+----------+
+|   1 | curd rice  | 1.0000 |        1 |
+|   2 | oldmonk    | 8.0000 |        3 |
+|   3 | lipstick   | 6.0000 |        3 |
+|   4 | cricketbat | 8.0000 |        2 |
+|   5 | kitkat     | 8.0000 |       10 |
+|   6 | watch      | 9.0000 |        2 |
+|   7 | belt       | 8.0000 |        8 |
+|   8 | ring       | 8.0000 |      100 |
++-----+------------+--------+----------+
+
+5. to update the value in the table for a particular row
+
+update product
+set pname="gobi",price=60
+where pid=5;
+
++-----+------------+--------+----------+
+| pid | pname      | price  | quantity |
++-----+------------+--------+----------+
+|   1 | curd rice  | 1.0000 |        1 |
+|   2 | oldmonk    | 8.0000 |        3 |
+|   3 | lipstick   | 6.0000 |        3 |
+|   4 | cricketbat | 8.0000 |        2 |
+|   5 | gobi       | 6.0000 |       10 |
+|   6 | watch      | 9.0000 |        2 |
+|   7 | belt       | 8.0000 |        8 |
+|   8 | ring       | 8.0000 |      100 |
++-----+------------+--------+----------+
+
+6. Delete the single row(particular)
+
+delete 
+from product
+where pid=5;
+
++-----+------------+--------+----------+
+| pid | pname      | price  | quantity |
++-----+------------+--------+----------+
+|   1 | curd rice  | 1.0000 |        1 |
+|   2 | oldmonk    | 8.0000 |        3 |
+|   3 | lipstick   | 6.0000 |        3 |
+|   4 | cricketbat | 8.0000 |        2 |
+|   6 | watch      | 9.0000 |        2 |
+|   7 | belt       | 8.0000 |        8 |
+|   8 | ring       | 8.0000 |      100 |
++-----+------------+--------+----------+
+
+7. to delete all the values/values
+
+truncate table product;
+
+
+8. to delete the table. 
+syntax:
+drop table table_name;
+
+drop table product;
+
+9. to drop the database.
+syntax:
+drop database database_name;
+
+drop database chombu;
+
+
