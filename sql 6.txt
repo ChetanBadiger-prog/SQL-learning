@@ -1,0 +1,11 @@
+1. wqt display employee fist name and last name  from emps
+
+select fname,lname
+from emps;
+
+2. wqt display employee fname,job,salary and dob from employee table
+
+select fname,job,sal,dob
+from emps;
+
+3. 
