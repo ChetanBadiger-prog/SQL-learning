@@ -1,0 +1,51 @@
+Expression
+
+1. wqt display details of employees along with annual commission from employees datable
+
+select *,comm*12
+from emps;
+
+2.wqt diplay fname,job, salary with 25000 bonus
+
+select fname,job,sal+25000
+from emps;
+
+3. wqt display fname,status and lid and salary with 10% hike
+
+select fname,status,lid,sal+sal*0.1
+from emps;
+
+4. wqt display fname,job,customer id and salary with 20% of hike
+
+select fname,job,cid,sal+sal*0.2
+from emps;
+
+5. wqt display fname, salary with 30%reduction
+
+select fname,sal-sal*0.3
+from emps;
+
+6. wqt display fname, commission with 50% hike and annual salary with 15% reduction
+
+select fname,comm+(comm*15/100),(sal*12)-(sal*12)*50/100
+from emps;
+
+7. fname ,job ,annual salary 10% hike and annual commission with 20% reduction
+
+select fname, sal*12+((sal*12)*0.10),(comm*12)-((comm*12)*20/100)
+from emps;
+
+8. aliasing concept
+
+select sal*12+((sal*12)*0.10) as "annual salary 10% hike",(comm*12)-((comm*12)*20/100) as "annual commission with 20% reduction"
+ from emps;
+
+9. fname ,lname and dob as
+
+select fname as first_name, lname as "last name", dob as "date of birth"
+from emps;
+
+10. annual and job as designation
+
+select sal*12 as "annual salary", job as designation
+from emps;
