@@ -1,0 +1,56 @@
+11. fname as first name and if emps fname is kiran
+
+select fname "first name",job
+from emps
+where fname = "kiran";
+
+12. fnane,salary and commission if emps are getting salary  more than 45000
+
+select fname,sal as salary,comm
+from emps
+where sal>45000;
+
+13. wqtd details of emps if emps are working as waiter
+
+select *
+from emps
+where job="waiter";
+
+14. wqtd fname , dob and date of joining if emps born after the year 1993
+
+select fname,dob,doj
+from emps
+where dob>"1993-12-31";
+
+15. wqtd fname,dob,doj,job emps join after the year 2019
+
+select fname,dob,doj,job
+from emps
+where doj>"2019-12-31";
+
+wqtd details of emps, who hired after the month march of 2020
+
+select *
+from emps
+where doj>"2020-03-31";
+
+wqtd fname and dob emps born before year 1994
+
+select fname,dob
+from emps
+where dob<"1994-01-01";
+
+wqtd fname,annual salary,manajor id if annual salary is more than 500000
+
+select fname,sal*12 as annual_salary,mgr as manager_id
+from emps
+where sal*12>500000;
+
+fname,dob and doj and location id if emps born before the month October 1995
+
+select fname,dob,doj,lid as location_id
+from emps
+where dob<"1995-10-01";
+
+
+ 
