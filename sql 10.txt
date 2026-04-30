@@ -1,0 +1,77 @@
+fname and salary if employees are getting salary more than or equal to 24000 and less than or than equals to 75000
+
+select fname, sal
+from emps
+where sal>=24000 and sal<=75000;
+
+
+between
+
+select fname,sal 
+from emps
+where sal between 24000 and 75000;
+
+wqtd fname dob and doj if employee born in the year 1993 using special operator
+
+select fname, dob, doj
+from emps
+where dob >="1993-01-01" and "1993-12-31";
+
+fname, lname, job and salary if employee are getting salary more than 24000 and less than 50000 and working as waiter , cleaner, delivary
+
+select fname,lname,job,sal
+from emps
+where sal between 24000+0.01 and 50000-0.01 and job in("waiter","cleaner","delivery");
+
+wqtd fname and doj if emps joined in the year 2019 , 2020
+
+select fname,doj
+from emps
+where doj between "2019-01-01" and "2020-12-31"; 
+
+where doj between "2019-01-01" and "2020-12-31" and doj between " ;
+
+wqtd details of emps who are not getting salary in the range 35000 and 45000
+
+select *
+from emps
+where sal not between 35000 and 45000;
+
+wqtd fname and dob if emps not born in the year 1988
+
+select fname,dob
+from emps
+where dob not between "1988-01-01" and "1988-12-31";
+
+wqtd details of emps who are haveing reporting manager 
+
+select *
+from emps
+where mgr is not null;
+
+wqtd fname and comm if emps are not getting any commisiion
+
+select fname,comm
+from emps
+where comm is null;
+
+
+details of emps who are acting as customer for their company
+
+select *
+from emps
+where cid is not null;
+
+wqtd details of emps who are working as waiter or delivary and getting salary in the range 35000 to 100000 and hired in the year 2018 and not born in the year 1996 and not working as security and must have a reporting manager?
+
+select *
+from emps
+where job in ("waiter","delevery") and sal between 35000 and 100000 and doj between "2018-01-01" and "2018-12-31" and dob not between "1996-01-01" and "1996-12-31" and job not in("chef","security") and mgr is not null;
+
+
+details of emps who joined in year 2016 and in the date 10
+
+select *
+from emps
+where doj in ("2016-01-10","2016-02-10","2016-03-10,"2016-04-10,"2016-05-10,"2016-06-10,"2016-07-10","2016-08-10","2016-09-10,"2016-10-10,"2016-11-10,"2016-12-10");
+
