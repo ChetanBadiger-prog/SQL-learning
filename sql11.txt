@@ -1,0 +1,54 @@
+1. wqtd fname of emps if fname is starting with k
+
+select fname
+from emps
+where fname like "k%";
+
+wqtd fname and lname is lname is ending with y
+
+select fname, lname
+from emps
+where lname like "%y";
+
+wqtd details of emps if fname contains atlest 2 a and getting salary in the range 40000 to 100000
+
+select *
+from emps
+where fname like "%a%a%" and sal between 40000 and 100000;
+
+wqtd fname , lanme , job if job contains a string "er" in it
+
+select fname, lname, job
+from emps
+where job like "%er%";
+
+wqtd fname if fname is starting with "s or a"
+
+select fname
+from emps
+where fname like "s%" or fname like "a%";
+
+wqtd details of emps if emps hired in the year 2019 
+
+select *
+from emps
+where doj like "2019%";
+
+wqtd details of emps who joined in the date 12th or 01
+
+select *
+from emps
+where doj like "%12" or doj like "%01";
+
+wqtd fname, dob , doj if emps born in the month jan , feb or march
+
+select fname,dob,doj
+from emps
+where dob like "____-01-__" or doj like "____-02-__" or doj like "____-03-__";
+
+
+
+
+
+
+
