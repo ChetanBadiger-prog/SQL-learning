@@ -1,0 +1,77 @@
+1. 
+
+
+2. details of emps who are not joined in the year2020
+
+select *
+from emps
+where doj not like "2020%";
+
+3. wqtd if emps fname is not starting with a and d
+
+select fname,lname
+from emps
+where fname not like "a%" and fname not like "d%";
+
+4. wqtd fname, lname, job if lname contains only 3 charater
+
+select fname, lname,job
+from emps
+where lname like "___";
+
+5. wqtd fname and annual salary if annual salary 2nd didgit is 2
+
+select fname, sal*12 as "annual salary"
+from emps
+where sal like "_2%";
+
+6. wqtd details of emps if emps fname last 3rd character is e and lname 4th character is r and working as waiter or manager but not a female
+
+select *
+from emps
+where fname like "%E__" and lname like "___R%" and job in ("waiter","manager") and gender not in("F"); 
+
+7. wqtd details of emps starting with ovals
+
+select *
+from emps
+where fname like "a%" or fname like "e%" or fname like "I%" or fname like "o%" or fname like"u%";
+
+8. wqtd fname of emps if fname is starting with lanme is not ending with ovels
+
+select fname,lname
+from emps
+where (fname like "a%" or fname like "e%" or fname like "I%" or fname like "o%" or fname like"u%" )and (lname not like "%a" and lname not like "%e" and lname not like "%i" and lname not like "%o" and lname not like "%u"); 
+ 
+
+9. wqtd fname of emps if fname is strating and ending with same character
+
+select fname
+from emps
+where fname like "a%a" or write for all the alphabets....
+
+10. wqtd 
+
+create table employee
+(
+id int,
+name varchar(20)
+);
+
+1.
+ 
+insert into employee values(1,"sha%shank"),(2,"ra%hu%l"),(3,"ra_kshith");
+
+
+11. wqtd name from employee table if name contains atleast 1 % init
+ 
+select name
+from employee
+where name like "%\%%";
+
+12. wqtd name from employee if name third charater is _
+
+select name
+from employee
+where name like "__\_%";
+
