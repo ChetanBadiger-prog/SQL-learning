@@ -1,0 +1,22 @@
+1. wqtd total salary given to all the waiters
+
+select sum(sal)
+from emps
+where job = "waiter";
+
+2. wqtd avg salary, toatal salary, min sal, max salary of all the emps if emps fname starting with k or a
+
+select avg(sal),sum(sal),min(sal),max(sal)
+from emps
+where fname like "k%" or fname like "a%";
+
+3. wqtd num of emps workin as waiter or delivary
+
+select count(*)
+from emps
+where job in("waiter","delivery");
+
+4. wqtd num of unique job role from emps table
+
+select count(distinct job) 
+from emps;
